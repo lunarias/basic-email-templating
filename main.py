@@ -19,6 +19,9 @@ def generate_email(type, data):
         if _type['key'] == type:
             _the_type = _type
 
+    if _the_type is None:
+        raise FileNotFoundError()
+
     template = J2.get_template(_the_type['template_file'])
     return template.render({'content': data})
 
