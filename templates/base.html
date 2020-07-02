@@ -1,14 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<body>
-<div class="container">
-    {% block message_body %}
-    {% endblock %}
-</div>
-</body>
+    <head>       
+        <meta charset="UTF-8">
+        <title>Title</title>
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        <style>
+            /* Font Definitions */
+            @font-face
+                {font-family:"Cambria Math";
+                panose-1:2 4 5 3 5 4 6 3 2 4;}
+            @font-face
+                {font-family:Calibri;
+                panose-1:2 15 5 2 2 2 4 3 2 4;}
+
+            /* Style Definitions */
+            p.MsoNormal, li.MsoNormal, div.MsoNormal
+                {margin:0in;
+                margin-bottom:.0001pt;
+                font-size:11.0pt;
+                font-family:"Calibri",sans-serif;}
+
+            a:link, span.MsoHyperlink
+                {mso-style-priority:99;
+                color:#0563C1;
+                text-decoration:underline;}
+
+            a:visited, span.MsoHyperlinkFollowed
+                {mso-style-priority:99;
+                color:#954F72;
+                text-decoration:underline;}
+
+            span.EmailStyle17
+                {mso-style-type:personal-compose;
+                font-family:"Calibri",sans-serif;
+                color:windowtext;}
+
+            span.CommentsChar
+                {mso-style-name:"Comments Char";
+                mso-style-priority:6;
+                mso-style-link:Comments;}
+
+            p.Comments, li.Comments, div.Comments
+                {mso-style-name:Comments;
+                mso-style-priority:6;
+                mso-style-link:"Comments Char";
+                margin-top:11.0pt;
+                margin-right:0in;
+                margin-bottom:11.0pt;
+                margin-left:.5in;
+                text-align:justify;
+                font-size:11.0pt;
+                font-family:"Calibri",sans-serif;}
+
+            p.Default, li.Default, div.Default
+                {mso-style-name:Default;
+                margin:0in;
+                margin-bottom:.0001pt;
+                text-autospace:none;
+                font-size:12.0pt;
+                font-family:"Calibri",sans-serif;
+                color:black;}
+
+            .MsoChpDefault
+                {mso-style-type:export-only;
+                font-family:"Calibri",sans-serif;}
+            .header-img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;  
+                width:200px;
+                height:auto;  
+                padding-top: 20px;   
+                padding-bottom: 20px;    
+            }
+            .container-style{            
+                width:80rem;            
+            }
+
+            .center-text{
+                text-align:center;
+            }
+
+            a.btn{
+                color: white;
+                text-decoration: none;
+            }
+
+            .card-header{
+                font-weight: 600;
+            }
+
+            .bg-header{
+                background-color: #C4E0E1;
+            }
+
+        </style>       
+    </head>
+    <body>  
+
+        <div class = "card mx-auto">
+
+            <div class="card-header bg-header">
+                <img class="card-img-top header-img" src="https://www.nutrien.com/sites/default/files/styles/large/public/2017-12/Nutrien%20Logo%20%28COL%29%20without%20Tagline%20%28PNG%29.png?itok=wiXM4q-S" alt="Card image cap">
+                <!-- <img src="https://www.nutrien.com/sites/default/files/styles/large/public/2017-12/Nutrien%20Logo%20%28COL%29%20without%20Tagline%20%28PNG%29.png?itok=wiXM4q-S" class = "header-img" alt="alternatetext"> -->
+            </div>
+            <div class = "card-body">
+                <p class="Default">
+
+                {% block message_body %} {% endblock %}          
+              
+                </p>
+            </div>
+
+            <div class="card-footer center-text">
+                <p class="Default">This is the footer</p>
+            </div>
+
+        </div>        
+        
+    </body>
 </html>
