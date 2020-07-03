@@ -5,10 +5,18 @@ J2 = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
 )
 
-ALLOWED_TYPES = [{
-    'key': 'secops_instance_details',
-    'template_file': 'secops_instance_details.html'
-}]
+ALLOWED_TYPES = [
+        {
+        'key': 'secops_instance_details',
+        'template_file': 'secops_instance_details.html'
+        },
+
+        {
+        'key': 'secops_instance_request',
+        'template_file': 'secops_instance_request.html'
+        }
+    
+    ]
 
 
 def generate_email(type, data):
@@ -25,9 +33,9 @@ def generate_email(type, data):
     template = J2.get_template(_the_type['template_file'])
     return template.render({'content': data})
 
+def parseContent():
 
-def main():
-    example_struct = {
+    struct = {
         'content': {
             'build_id': '9090',
             'build_type': 'amz-linux-2',            
@@ -40,17 +48,25 @@ def main():
             'availability_zone': 'us-east-1',                
             'ip': {
                 'private': '192.168.1.xxx',
-                'public': '193.168.1.xxx',
+                'public': '193.168.1.xxx'
             },            
             'urls': {
                 'approve': 'https://example/?a=b&c=d',
-                'reject': 'https://example/?1=2&3=4',
-            }                                  
+                'reject': 'https://example/?1=2&3=4'
+            },      
+            'deploy_url': 'https://example/?a=b&c=d'                            
         }
     }
 
+    return struct
+
+
+
+""" def main():    
+
+    example_struct = parseContent()
     print(generate_email(type='secops_instance_details', data=example_struct['content']))
 
 
 if __name__ == '__main__':
-    main()
+    main() """

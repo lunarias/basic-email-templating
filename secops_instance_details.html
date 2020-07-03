@@ -4,7 +4,7 @@
 
 {% block message_body %}
 
-<div class="card mx-auto center-text" style="max-width: 500px;">
+<div class="card mx-auto center-text" style="max-width: {{ max_width_content }};">
 
     <!--Build ID-->
     {% if 'build_id' in content %}

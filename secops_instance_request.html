@@ -1,0 +1,20 @@
+{% extends "templates/base.html" %}
+
+{% block message_body %}
+
+<div class="card mx-auto center-text" style="max-width: {{ max_width_content }};">
+
+    <!--Deploy URL-->
+    {% if 'deploy_url' in content %}
+    <div class="card-header">
+        Deploy URL
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{content['deploy_url']}}</li>                       
+    </ul>
+    {% endif %}
+
+</div>
+
+
+{% endblock %}
