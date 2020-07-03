@@ -29,18 +29,23 @@ def generate_email(type, data):
 def main():
     example_struct = {
         'content': {
-            'ssh_key': """-----BEGIN THIS IS NOT A KEY-----
-    HAPPYJOESPIZZAPARLORHAPPYJOESPIZZAPARLORHAPPYJOESPIZZAPARLORHAPPYJOESPIZZAPARLOR
-    HAPPYJOESPIZZAPARLORHAPPYJOESPIZZAPARLORHAPPYJOESPIZZAPARLORHAPPYJOESPIZZAPARLOR
-    HAPPYJOESPIZZAPARLORHAPPYJOESPIZZAPARLORHAPPYJOESPIZZAPARLORHAPPYJOESPIZZAPARLOR
-    HAPPYJOESPIZZAPARLORHAPPYJOESPIZZAPARLORHAPPYJOESPIZZAPARLORHAPPYJOESPIZZAPARLOR
-    HAPPYJOESPIZZAPARLORHAPPYJOESPIZZAPARLORHAPPYJOESPIZZAPARLORHAPPYJOESPIZZAPARLOR
-    -----END THIS IS NOT A KEY-----""",
-            'ip_address': '192.168.1.100',
+            'build_id': '9090',
+            'build_type': 'amz-linux-2',            
+            'private_key': """-----BEGIN RSA PRIVATE KEY----- 
+            ************bunchofletters*****
+            ****************************
+            **************************
+            -----END RSA PRIVATE KEY-----""",
+            'instance_id': 'x-xxxxxxxx',
+            'availability_zone': 'us-east-1',                
+            'ip': {
+                'private': '192.168.1.xxx',
+                'public': '193.168.1.xxx',
+            },            
             'urls': {
                 'approve': 'https://example/?a=b&c=d',
                 'reject': 'https://example/?1=2&3=4',
-            }
+            }                                  
         }
     }
 
