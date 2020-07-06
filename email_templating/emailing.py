@@ -1,9 +1,10 @@
-import os
-import jinja2
 
-J2 = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
-)
+import sys
+import jinja2
+from jinja2 import Environment, PackageLoader, select_autoescape
+
+loader = PackageLoader('email_templating', 'templates')
+J2 = jinja2.Environment(loader=loader)
 
 ALLOWED_TYPES = [
         {
@@ -30,7 +31,7 @@ def generate_email(type, data):
     if _the_type is None:
         raise FileNotFoundError()
 
-    template = J2.get_template(_the_type['template_file'])
+    template = J2.get_template('secops_instance_details.html')
     return template.render({'content': data})
 
 def parseContent():
@@ -68,5 +69,6 @@ def parseContent():
     print(generate_email(type='secops_instance_details', data=example_struct['content']))
 
 
-if __name__ == '__main__':
-    main() """
+if __name__ == '__emailing__':
+    main()
+ """
