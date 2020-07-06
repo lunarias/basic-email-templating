@@ -25,13 +25,14 @@ def generate_email(type, data):
     _the_type = None
 
     for _type in ALLOWED_TYPES:
-        if _type['key'] == type:
+        if _type['key'] == type:            
             _the_type = _type
+            fileName = _the_type['template_file']
 
     if _the_type is None:
         raise FileNotFoundError()
 
-    template = J2.get_template('secops_instance_details.html')
+    template = J2.get_template(fileName)
     return template.render({'content': data})
 
 def parseContent():
