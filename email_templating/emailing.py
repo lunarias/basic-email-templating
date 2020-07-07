@@ -3,7 +3,7 @@ import sys
 import jinja2
 from jinja2 import Environment, PackageLoader, select_autoescape
 
-loader = PackageLoader('emailing', 'templates')
+loader = PackageLoader('email_templating', 'templates')
 J2 = jinja2.Environment(loader=loader)
 
 ALLOWED_TYPES = [
@@ -64,10 +64,11 @@ def parseContent():
 
 
 
-def main():    
+""" def main():    
     example_struct = parseContent()
     print(generate_email(type='secops_instance_request', data=example_struct['content']))
 
 
 if __name__ == '__main__':
     main()
+ """
