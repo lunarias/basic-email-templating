@@ -5,9 +5,8 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="email-templating-jcai8203", # Replace with your own username
-    version="0.0.198",
-    author="Trent Millar, Jessie Cai",
-    author_email="Trent.Millar@nutrien.com, jessie.cai@nutrien.com",
+    version="0.0.100",
+    author="Nutrien",   
     description="A package that creates HTML emails from Jinja2 templates",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -16,9 +15,12 @@ setuptools.setup(
     package_data={'email_templating': ['templates/*.html']},
     include_package_data=True,     
     py_modules=['emailing'],
+    install_requires=[
+        'jinja2',      
+    ],
     classifiers=[
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3.8",    
+        'Programming Language :: Python :: 3',
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.8',
