@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block message_body %}
+
+<table align="center" border="0" cellpadding="10px" cellspacing="0" width="480" 
+    style="border-raidus: 9px; border: 1px solid #cccccc; border-collapse: collapse; margin-top: 150px; margin-bottom:100px;">  
+
+    <!--Deploy URL-->
+    {% if 'deploy_url' in content %}
+    <tr>
+        <td bgcolor="#ebf0ef" style = "font-weight:550"> 
+            Deploy URL
+        </td>                
+    </tr>
+    <tr>
+        <td bgcolor="#FFFFFF">
+            {{content['deploy_url']}}
+        </td>
+    </tr> 
+    {% endif %}
+
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+
+{% block message_body %}
+
+    <table align="center" border="0" cellpadding="10px" cellspacing="0" width="480" 
+    style="border: 1px solid #cccccc; border-collapse: collapse; margin-top: 150px; margin-bottom:100px;">  
+        
+        <!--Build ID-->
+        {% if 'build_id' in content %}
+        <tr>
+           <td bgcolor="#ebf0ef" style = "font-weight:550"> 
+                Build ID
+            </td>                
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                {{content['build_id']}} 
+            </td>
+        </tr>            
+        {% endif %}
+
+        <!--Build Type-->
+        {% if 'build_type' in content %}
+        <tr>
+           <td bgcolor="#ebf0ef" style = "font-weight:550">
+                Build Type
+            </td>                
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                {{content['build_type']}} 
+            </td>
+        </tr>  
+        {% endif %}
+
+        <!--Private key-->
+        {% if 'private_key' in content %}
+        <tr>
+           <td bgcolor="#ebf0ef" style = "font-weight:550">
+                Private Key
+            </td>                
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                {{content['private_key']}}       
+            </td>
+        </tr>  
+        {% endif %}
+
+        <!--Instance ID-->
+        {% if 'instance_id' in content %}
+        <tr>
+           <td bgcolor="#ebf0ef" style = "font-weight:550">
+                Instance ID
+            </td>                
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                {{content['instance_id']}}           
+            </td>
+        </tr>  
+        {% endif %}
+
+        <!--Availability Zone-->
+        {% if 'availability_zone' in content %}
+        <tr>
+           <td bgcolor="#ebf0ef" style = "font-weight:550">
+                Availability Zone 
+            </td>                
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                {{content['availability_zone']}}           
+            </td>
+        </tr>  
+        {% endif %}
+
+        <!--Private IP-->
+        {% if 'private' in content['ip'] %}
+        <tr>
+           <td bgcolor="#ebf0ef" style = "font-weight:550">
+                Private IP
+            </td>                
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                {{content['ip']['private']}}  
+            </td>
+        </tr>  
+        {% endif %}
+
+        <!--Public IP-->
+        {% if 'public' in content['ip'] %}
+        <tr>
+           <td bgcolor="#ebf0ef" style = "font-weight:550">
+                Public IP
+            </td>                
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                {{content['ip']['public']}}         
+            </td>
+        </tr>    
+        {% endif %}              
+
+        <!--Endpoint Action-->
+        {% if 'approve' in content['urls'] %}
+        <tr>
+           <td bgcolor="#ebf0ef" style = "font-weight:550">
+                Endpoint Action
+            </td>                
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                <a href="{{content['urls']['approve']}}" button class="btn button approve-btn"><p class = "btn-font">Approve</p></button>
+                <a href="{{content['urls']['reject']}}" button class="btn button reject-btn"><p class = "btn-font">Reject</p></button>
+            </td>
+        </tr>  
+        {% endif %}
+    </table>
+
+
+{% endblock %}
