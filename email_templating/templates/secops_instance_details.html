@@ -1,94 +1,124 @@
 {% extends "base.html" %}
 
 
-
 {% block message_body %}
 
-<div class="card mx-auto center-text" style="max-width: {{ max_width_content }};">
+    <table align="center" border="0" cellpadding="10px" cellspacing="0" width="480" 
+    style="border: 1px solid #cccccc; border-collapse: collapse; margin-top: 150px; margin-bottom:100px;">  
+        
+        <!--Build ID-->
+        {% if 'build_id' in content %}
+        <tr>
+           <td bgcolor="#ebf0ef" style = "font-weight:550"> 
+                Build ID
+            </td>                
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                {{content['build_id']}} 
+            </td>
+        </tr>            
+        {% endif %}
 
-    <!--Build ID-->
-    {% if 'build_id' in content %}
-    <div class="card-header">
-        Build ID
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{content['build_id']}}</li>                       
-    </ul>
-    {% endif %}
+        <!--Build Type-->
+        {% if 'build_type' in content %}
+        <tr>
+           <td bgcolor="#ebf0ef" style = "font-weight:550">
+                Build Type
+            </td>                
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                {{content['build_type']}} 
+            </td>
+        </tr>  
+        {% endif %}
 
-    <!--Build Type-->
-    {% if 'build_type' in content %}
-    <div class="card-header">
-        Build Type
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{content['build_type']}}</li>                       
-    </ul>
-    {% endif %}
+        <!--Private key-->
+        {% if 'private_key' in content %}
+        <tr>
+           <td bgcolor="#ebf0ef" style = "font-weight:550">
+                Private Key
+            </td>                
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                {{content['private_key']}}       
+            </td>
+        </tr>  
+        {% endif %}
 
-    <!--Private key-->
-    {% if 'private_key' in content %}
-    <div class="card-header">
-        Private Key
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{content['private_key']}}</li>                       
-    </ul>
-    {% endif %}
+        <!--Instance ID-->
+        {% if 'instance_id' in content %}
+        <tr>
+           <td bgcolor="#ebf0ef" style = "font-weight:550">
+                Instance ID
+            </td>                
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                {{content['instance_id']}}           
+            </td>
+        </tr>  
+        {% endif %}
 
-    <!--Instance ID-->
-    {% if 'instance_id' in content %}
-    <div class="card-header">
-        Instance ID
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{content['instance_id']}}</li>                       
-    </ul>
-    {% endif %}
+        <!--Availability Zone-->
+        {% if 'availability_zone' in content %}
+        <tr>
+           <td bgcolor="#ebf0ef" style = "font-weight:550">
+                Availability Zone 
+            </td>                
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                {{content['availability_zone']}}           
+            </td>
+        </tr>  
+        {% endif %}
 
-    <!--Availability Zone-->
-    {% if 'availability_zone' in content %}
-    <div class="card-header">
-        Availability Zone 
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{content['availability_zone']}}</li>                       
-    </ul>
-    {% endif %}
+        <!--Private IP-->
+        {% if 'private' in content['ip'] %}
+        <tr>
+           <td bgcolor="#ebf0ef" style = "font-weight:550">
+                Private IP
+            </td>                
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                {{content['ip']['private']}}  
+            </td>
+        </tr>  
+        {% endif %}
 
-    <!--Private IP-->
-    {% if 'private' in content['ip'] %}
-    <div class="card-header">
-        Private IP
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{content['ip']['private']}}</li>                       
-    </ul>
-    {% endif %}
+        <!--Public IP-->
+        {% if 'public' in content['ip'] %}
+        <tr>
+           <td bgcolor="#ebf0ef" style = "font-weight:550">
+                Public IP
+            </td>                
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                {{content['ip']['public']}}         
+            </td>
+        </tr>    
+        {% endif %}              
 
-    <!--Public IP-->
-    {% if 'public' in content['ip'] %}
-    <div class="card-header">
-        Public IP
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{content['ip']['public']}}</li>                       
-    </ul>        
-    {% endif %}              
+        <!--Endpoint Action-->
+        {% if 'approve' in content['urls'] %}
+        <tr>
+           <td bgcolor="#ebf0ef" style = "font-weight:550">
+                Endpoint Action
+            </td>                
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                <a href="{{content['urls']['approve']}}" button class="btn button approve-btn"><p class = "btn-font">Approve</p></button>
+                <a href="{{content['urls']['reject']}}" button class="btn button reject-btn"><p class = "btn-font">Reject</p></button>
+            </td>
+        </tr>  
+        {% endif %}
+    </table>
 
-    <!--Endpoint Action-->
-    {% if 'approve' in content['urls'] %}
-    <div class="card-header">
-        Endpoint Action
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-            <a href="{{content['urls']['approve']}}" class="btn btn-success mx-2">Accept</a>                              
-            <a href="{{content['urls']['reject']}}" class="btn btn-danger mx-2">Reject</a>                         
-        </li>                       
-    </ul>
-    {% endif %}
-
-</div> 
 
 {% endblock %}
